@@ -13,14 +13,13 @@
 # What's covered
 
 - Part I - Setting up your environment
-- Part II - Leaflet API
-- Part III - Mapbox.js API
-- Part IV - 
+- Part II - Creating an Interactive Map with the Leaflet API
+- Part III - Adding Customized and Interactive Mapbox Maps Mapbox.js API
+- Part IV - Wrap Up and Next Steps
 
 ---
 # Setting up your environment
 Things you will need for this workshop:
-
 - working laptop
 - internet access
 
@@ -30,13 +29,12 @@ Good to haves:
 
 ---
 # Using crowdcast.io
-Real time polls: crowdcast.io 
+Real time polls and surveys: [crowdcast.io](http://crowdcast.io/) 
 
 ---
-# Part II - Leafet API
-Leaflet API:
+# Part II - Creating an Interactive Map with the Leaflet API
 
-### leafletjs.com/reference.html
+## [Leaflet API](http://leafletjs.com/reference.html) - leafletjs.com/reference.html
 
 ---
 # Goal
@@ -223,28 +221,18 @@ map.eachLayer(function (layer) {
 ---
 # Conversion methods
 
-Methods for converting points to latitude/longitude and back
+## Methods for converting points to latitude/longitude and back
 
 - latLngToLayerPoint( <LatLng> latlng )
 - layerPointToLatLng( <Point> point )	
-- containerPointToLayerPoint( <Point> point )
-- layerPointToContainerPoint( <Point> point )
-- latLngToContainerPoint( <LatLng> latlng )
-- containerPointToLatLng( <Point> point )	
-- project( <LatLng> latlng, <Number> zoom? )
-- unproject( <Point> point, <Number> zoom? )	
-- mouseEventToContainerPoint( <MouseEvent> event )
-- mouseEventToLayerPoint( <MouseEvent> event )
-- mouseEventToLatLng( <MouseEvent> event )	
 
 ---
 
 # Zoom/pan options
-
-reset	Boolean	false	If true, the map view will be completely reset (without any animations).
-pan	pan options	-	Sets the options for the panning (without the zoom change) if it occurs.
-zoom	zoom options	-	Sets the options for the zoom change if it occurs.
-animate	Boolean	-	An equivalent of passing animate to both zoom and pan options (see below).
+- reset
+- pan
+- zoom
+- animate
 
 ---
 # Other options
@@ -309,7 +297,7 @@ Popups
 marker.bindPopup(popupContent).openPopup();
 
 ```
-
+	
 ---
 # Resources
 
