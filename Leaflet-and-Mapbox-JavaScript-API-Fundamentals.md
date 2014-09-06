@@ -37,8 +37,8 @@ Good to haves:
 
 ---
 
-# Using crowdcast.io
-Real time polls and surveys: [crowdcast.io](http://crowdcast.io/) 
+# [fit]Real time polls and surveys
+[Using crowdcast.io](http://crowdcast.io/) - crowdcast.io
 
 ---
 
