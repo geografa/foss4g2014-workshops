@@ -214,8 +214,10 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 ---
 
 # Adding markers
-```
-// add a marker in the given location, attach some popup content to it and open the popup
+```javascript
+// add a marker in the given location
+// attach some popup content to it and 
+// open the popup
 L.marker([51.5, -0.09]).addTo(map)
     .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
     .openPopup();
@@ -257,7 +259,7 @@ L.marker([51.5, -0.09]).addTo(map)
 
 ---
 # Example
-```
+```javascript
 map.eachLayer(function (layer) {
     layer.bindPopup('Hello');
 });
@@ -300,20 +302,17 @@ map.eachLayer(function (layer) {
 
 ---
 # Markers
-L.marker([45.522, -122.677]).addTo(map);
 
+```javascript
+L.marker([45.522, -122.677]).addTo(map);
+```
 ---
 # Marker options
 - icon
 - clickable
 - draggable
-- keyboard
-- title
-- alt
-- zIndexOffset
 - opacity
 - riseOnHover
-- riseOffset
 
 ---
 # Marker events
@@ -322,24 +321,16 @@ L.marker([45.522, -122.677]).addTo(map);
 - dblclick
 - mousedown
 - mouseover
-- mouseout
 - contextmenu
-- dragstart
 - drag
-- dragend
 - move
-- add
-- remove
 - popupopen
-- popupclose
 
 ---
 # Popups
-Popups
 
-```
+```javascript
 marker.bindPopup(popupContent).openPopup();
-
 ```
 	
 ---
