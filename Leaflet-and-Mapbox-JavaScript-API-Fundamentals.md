@@ -1,6 +1,9 @@
 # Leaflet and Mapbox JavaScript API Fundamentals
 
 
+
+![](https://i.cloudup.com/G9pEJXWpow-2000x2000.png)
+
 ---
 
 # Rafa Gutierrez
@@ -10,6 +13,7 @@
 - help@mapbox.com
 
 ---
+
 # What's covered
 
 - Part I - Setting up your environment
@@ -18,34 +22,47 @@
 - Part IV - Wrap Up and Next Steps
 
 ---
-# Setting up your environment
+
+# Part I - Setting up your environment
+
 Things you will need for this workshop:
+
 - working laptop
 - internet access
 
 Good to haves:
+
 - local web server
 - Mapbox account (use code FOSS4GWORKSHOPS)
 
 ---
+
 # Using crowdcast.io
 Real time polls and surveys: [crowdcast.io](http://crowdcast.io/) 
 
 ---
+
 # Part II - Creating an Interactive Map with the Leaflet API
 
 ## [Leaflet API](http://leafletjs.com/reference.html) - leafletjs.com/reference.html
 
 ---
+
 # Goal
 Make an interactive map of places. The map will have:
+
 - custom layers
-- layer controls
+- custom markers
 - custom interface
 - custom tooltips
 - added plugins
 
 ---
+
+# [fit] Questions so far?
+
+---
+
 # Creating a basic HTML page
 
 	<!DOCTYPE html>
@@ -66,14 +83,20 @@ Make an interactive map of places. The map will have:
 	<html>
 
 --- 
+
 # Adding CSS and scripts
+
+Use the hosted version of Leaflet as described at http://leafletjs.com/download.html.
 
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
 ---
+
 # Adding styles
+Create a basic style that makes the map fit the entire page.
+
 	<style>
 		body { margin:0; padding:0; }
 		#map { position:absolute; top:0; bottom:0; width:100%; }
@@ -81,7 +104,7 @@ Make an interactive map of places. The map will have:
 
 ---
 
-# Add the div to the body
+# Add a div container to the body that will contain your map.
 
 	<div id='map'></div>
 
@@ -94,15 +117,17 @@ Make an interactive map of places. The map will have:
 	var map = L.map('map');
 
 ---
+
 # Add a tileLayer to the map element
 
-```
+```javascript
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>contributors'
 	}).addTo(map);
 ```
 
 ---
+
 # Map Controls
 
 - Zoom buttons
@@ -111,6 +136,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 - Scale
 
 ---
+
 # Map state options
 - center
 - zoom
@@ -121,9 +147,10 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 - crs
 
 ---
+
 # Add map options
 
-```
+```javascript
 // initialize the map on the "map" div with a given center and zoom
 var map = L.map('map', {
     center: [51.505, -0.09],
@@ -131,6 +158,21 @@ var map = L.map('map', {
 });
 ```
 ---
+
+# Adding a tileLayer
+
+```javascript
+// add an OpenStreetMap tile layer
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+```
+---
+
+![left](https://i.cloudup.com/LYJ78rgOtL-3000x3000.jpeg)  
+
+now we have a map
+
+---
+
 # Methods for modifying map state
 
 - setView( <LatLng> center, <Number> zoom?, <zoom/pan options> options? )
@@ -142,10 +184,16 @@ var map = L.map('map', {
 - remove()
 
 ---
+
 # Console time!
 Bust out the console.
 
 ---
+
+![](map.getZoom.gif)
+
+---
+
 #Map events
 
 - click 
@@ -155,12 +203,7 @@ Bust out the console.
 - layeradd 
 
 ---
-# Adding a tileLayer
-```
-// add an OpenStreetMap tile layer
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
-```
----
+
 # Add tileLayer options
 ```
 // add an OpenStreetMap tile layer
@@ -169,6 +212,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 ```
 ---
+
 # Adding markers
 ```
 // add a marker in the given location, attach some popup content to it and open the popup
@@ -177,12 +221,12 @@ L.marker([51.5, -0.09]).addTo(map)
     .openPopup();
 ```    
 ---
+
 # Methods for getting map state
 
 - getCenter()	
 - getZoom()	
 - getBounds()
-
 
 ---
 # Available Map Layers
