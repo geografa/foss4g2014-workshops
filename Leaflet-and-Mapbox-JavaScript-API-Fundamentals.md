@@ -1,7 +1,5 @@
 # Leaflet and Mapbox JavaScript API Fundamentals
 
-
-
 ![](https://i.cloudup.com/G9pEJXWpow-2000x2000.png)
 
 ---
@@ -128,10 +126,13 @@ var map = L.map('map');
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>contributors'
 	}).addTo(map);
+
+map.setView([45.522, -122.6777], 13);
 ```
 
 ---
-# [fit]Review map
+
+![](https://cldup.com/dYEdpXINGH-3000x3000.png)
 
 ---
 
@@ -141,7 +142,7 @@ Default
 - Zoom buttons
 - Attribution
 
-Added
+Things we can add:
 - Layer switcher
 - Scale
 
@@ -154,7 +155,6 @@ Added
 - minZoom
 - maxZoom
 - maxBounds
-- crs
 
 ---
 
@@ -176,6 +176,7 @@ var map = L.map('map', {
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 ```
 ---
+
 # Adding a different tileLayer
 
 ```javascript
@@ -187,11 +188,10 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			id: 'examples.map-i86knfo3'
 		}).addTo(map);
 ```
+
 ---
 
-![left](https://i.cloudup.com/LYJ78rgOtL-3000x3000.jpeg)  
-
-now we have a map
+![](https://cldup.com/OJ43f2UBRm-3000x3000.png)  
 
 ---
 
@@ -235,15 +235,89 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 ```
 ---
 
+# [fit]Layers
+
+---
+
+- tile layers
+- markers
+- popups
+- image overlays
+- vector layers and layer groups.
+
+---
+
 # Adding markers
 ```javascript
 // add a marker in the given location
 // attach some popup content to it and 
 // open the popup
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
-    .openPopup();
+var myMarker = L.marker([45.52245801087795, -122.67773866653444]).addTo(map);
 ```    
+
+---
+
+# Marker options
+- icon
+- clickable
+- draggable
+- opacity
+- riseOnHover
+
+---
+
+var myMarker = L.marker([45.52245801087795, -122.67773866653444], {
+	draggable: true
+}).addTo(map);
+
+---
+
+# [fit]icons
+
+---
+
+var myIcon = L.icon({
+    iconUrl: 'https://cldup.com/jsXu-OReqo-3000x3000.png',
+    iconSize: [50,50],
+    iconAnchor: [24,50],
+    popupAnchor: [1,-50]
+});
+
+L.marker([45.52245801087795, -122.67773866653444], {icon: myIcon}).addTo(map);
+
+---
+# Chaining methods
+```javascript
+myMarker
+	.bindPopup("Hi. I'm a popup. <br> Customize me.")
+    .openPopup();
+```
+---
+
+# Marker events
+
+- click
+- dblclick
+- mousedown
+- mouseover
+- contextmenu
+- drag
+- move
+- popupopen
+
+---
+
+# Popups
+
+```javascript
+myMarker.bindPopup(popupContent).openPopup();
+
+var popup = L.popup()
+    .setLatLng([45.54, -122.65])
+    .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+    .openOn(map);
+```
+
 ---
 
 # Methods for getting map state
@@ -253,6 +327,7 @@ L.marker([51.5, -0.09]).addTo(map)
 - getBounds()
 
 ---
+
 # Available Map Layers
 
 - Tile layers
@@ -263,7 +338,6 @@ L.marker([51.5, -0.09]).addTo(map)
 - Image overlays
 - WMS layers
 - Layer groups
-
 
 ---
 
@@ -280,6 +354,7 @@ L.marker([51.5, -0.09]).addTo(map)
 - removeControl(control)
 
 ---
+
 # Example
 ```javascript
 map.eachLayer(function (layer) {
@@ -287,6 +362,7 @@ map.eachLayer(function (layer) {
 });
 ```
 ---
+
 # Conversion methods
 
 ## Methods for converting points to latitude/longitude and back
@@ -303,6 +379,7 @@ map.eachLayer(function (layer) {
 - animate
 
 ---
+
 # Other options
 - Locate
 - Pan
@@ -310,6 +387,7 @@ map.eachLayer(function (layer) {
 - fit Bounds
 
 ---
+
 # Property handlers
 
 - dragging	
@@ -323,39 +401,15 @@ map.eachLayer(function (layer) {
 - attributionControl
 
 ---
+
 # Markers
 
 ```javascript
 L.marker([45.522, -122.677]).addTo(map);
 ```
----
-# Marker options
-- icon
-- clickable
-- draggable
-- opacity
-- riseOnHover
 
 ---
-# Marker events
 
-- click
-- dblclick
-- mousedown
-- mouseover
-- contextmenu
-- drag
-- move
-- popupopen
-
----
-# Popups
-
-```javascript
-marker.bindPopup(popupContent).openPopup();
-```
-	
----
 # Resources
 
 - help@mapbox.com
