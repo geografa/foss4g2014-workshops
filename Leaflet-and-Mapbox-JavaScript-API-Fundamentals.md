@@ -111,27 +111,37 @@ Create a basic style that makes the map fit the entire page.
 ---
 
 # Initializing a map
-
+```javascript
 	<script>
 	// create a map in the "map" div
 	var map = L.map('map');
+	</script>
 
+```
 ---
 
 # Add a tileLayer to the map element
 
 ```javascript
+var map = L.map('map');
+
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>contributors'
 	}).addTo(map);
 ```
 
 ---
+# [fit]Review map
+
+---
 
 # Map Controls
 
+Default
 - Zoom buttons
 - Attribution
+
+Added
 - Layer switcher
 - Scale
 
@@ -153,17 +163,29 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 ```javascript
 // initialize the map on the "map" div with a given center and zoom
 var map = L.map('map', {
-    center: [51.505, -0.09],
+    center: [45.522, -122.677],
     zoom: 13
 });
 ```
 ---
 
-# Adding a tileLayer
+# Review adding a tileLayer
 
 ```javascript
 // add an OpenStreetMap tile layer
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+```
+---
+# Adding a different tileLayer
+
+```javascript
+L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			attribution: 'Map data &copy;  ' +
+			'<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i86knfo3'
+		}).addTo(map);
 ```
 ---
 
