@@ -208,11 +208,16 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 ---
 
-- tile layers
-- markers
-- popups
-- image overlays
-- vector layers and layer groups.
+# Available Map Layers
+
+- Tile layers
+- Markers
+- Popups
+- Vector layers: polylines, polygons, circles, rectangles, circle markers
+- GeoJSON layers
+- Image overlays
+- WMS layers
+- Layer groups
 
 ---
 
@@ -335,20 +340,6 @@ map.on('click', function() {
 
 ---
 
-# Methods for modifying map state
-
-
----
-
-# Console time!
-Bust out the console.
-
----
-
-![](map.getZoom.gif)
-
----
-
 #Map events
 
 - click 
@@ -369,6 +360,28 @@ Bust out the console.
 - Image overlays
 - WMS layers
 - Layer groups
+
+---
+
+#[fit]polylines, polygons, circles, rectangles, circle markers
+
+```javascript
+var latlngs = [[45.52245801087795, -122.67773866653444], 
+[38.89063199187812,-77.01313018798828]];
+
+var myPolyline = L.polyline(latlngs, {
+		color: 'red'
+	})
+	.addTo(map);
+
+```
+
+---
+
+```javascript
+// zoom the map to the polyline
+map.fitBounds(myPolyline.getBounds());
+```
 
 ---
 
