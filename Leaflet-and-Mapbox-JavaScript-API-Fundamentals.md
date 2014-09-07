@@ -195,37 +195,6 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 
 ---
 
-# Methods for modifying map state
-
-- setView( <LatLng> center, <Number> zoom?, <zoom/pan options> options? )
-- setZoom( <Number> zoom, <zoom options> options? )
-- fitBounds( <LatLngBounds> bounds, <fitBounds options> options? )
-- panTo( <LatLng> latlng, <pan options> options? )
-- panBy( <Point> point, <pan options> options? )
-- setMaxBounds( <LatLngBounds> bounds
-- remove()
-
----
-
-# Console time!
-Bust out the console.
-
----
-
-![](map.getZoom.gif)
-
----
-
-#Map events
-
-- click 
-- dblclick
-- mousedown
-- mouseover 
-- layeradd 
-
----
-
 # Add tileLayer options
 ```
 // add an OpenStreetMap tile layer
@@ -310,7 +279,7 @@ myMarker
 # Popups
 
 ```javascript
-myMarker.bindPopup(popupContent).openPopup();
+myMarker.bindPopup('Hi there').openPopup();
 
 var popup = L.popup()
     .setLatLng([45.54, -122.65])
@@ -320,11 +289,73 @@ var popup = L.popup()
 
 ---
 
+# [fit] Back to the map
+
+---
 # Methods for getting map state
 
 - getCenter()	
 - getZoom()	
 - getBounds()
+
+---
+
+# [fit]Console time
+
+Open your browswer's console to issue commands 
+
+- Chrome - console
+- Firefox - Firebug
+
+---
+```javascript
+map.getCenter();
+map.panTo([38.8,-77]);
+map.setZoom(3);
+map.setView([38.89063199187812,-77.01313018798828],8);
+```
+---
+
+# Interact with the map
+
+```javascript
+map.on('click', function() { alert('Clicked on the map!'); });
+```
+
+---
+
+```javascript
+map.on('click', function() { 
+	alert('Coordinates are: ' + 
+	map.getCenter().lat + 
+	', ' + 
+	map.getCenter().lng); 
+});
+```
+
+---
+
+# Methods for modifying map state
+
+
+---
+
+# Console time!
+Bust out the console.
+
+---
+
+![](map.getZoom.gif)
+
+---
+
+#Map events
+
+- click 
+- dblclick
+- mousedown
+- mouseover 
+- layeradd 
 
 ---
 
