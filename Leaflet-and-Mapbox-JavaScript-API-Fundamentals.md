@@ -578,16 +578,18 @@ var myGridControl = L.mapbox.gridControl(myGridLayer)
 
 ---
 
+#[fit] featureLayers
+
 ```javascript
 
 var myFeatureLayer = L.mapbox.featureLayer(geojson)
     .addTo(map);
 
 // or 
-
 var myFeatureLayer = L.mapbox.featureLayer()
     .addTo(map);
 
+// then
 myFeatureLayer.loadURL('my_local_markers.geojson')
 	.addTo(map);
 
@@ -599,6 +601,14 @@ myFeatureLayer.loadID('examples.map-0l53fhk2');
 
 ---
 
+```javascript
+var featureLayer = L.mapbox.featureLayer()
+    .loadURL('things.geojson')
+    .addTo(map);
+```
+
+
+---
 # Resources
 
 - help@mapbox.com
