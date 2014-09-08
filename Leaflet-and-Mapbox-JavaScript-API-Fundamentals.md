@@ -63,6 +63,8 @@ Make an interactive map of places. The map will have:
 
 # Creating a basic HTML page
 
+http://jsbin.com/jugoh/62/
+
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -248,16 +250,20 @@ var myMarker = L.marker([45.52245801087795, -122.67773866653444]).addTo(map);
 
 ---
 
+```javascript
+
 var myMarker = L.marker([45.52245801087795, -122.67773866653444], {
 	draggable: true
 }).addTo(map);
 
+```
 ---
 
 # [fit]icons
 
 ---
 
+```javascript
 var myIcon = L.icon({
     iconUrl: 'https://cldup.com/jsXu-OReqo-3000x3000.png',
     iconSize: [50,50],
@@ -265,7 +271,11 @@ var myIcon = L.icon({
     popupAnchor: [1,-50]
 });
 
-L.marker([45.52245801087795, -122.67773866653444], {icon: myIcon}).addTo(map);
+L.marker([45.52245801087795, -122.67773866653444], {
+		icon: myIcon
+	})
+	.addTo(map);
+```
 
 ---
 # Chaining methods
@@ -519,15 +529,76 @@ Mapbox.js is a plugin for the Leaflet API
 
 ---
 
+#[fit] Initializing the map
+
+---
+
 ```javascript
 // L.mapbox.map(element, id|url|tilejson, options)
 
+var map = L.mapbox.map('map')
+    .setView([45.512549810900424,-122.68418669700624],7);
 
-var map = L.mapbox.map();
+```
+---
+#[fit] Add a tileLayer to the map
+
+```javascript
+var layer = L.mapbox.tileLayer('grafa.a962eabc');
+
+layer.addTo(Map);
+```
+
+---
+
+#[fit] gridLayers	
+
+---
+
+#[fit] Add gridLayers to the map
+
+```javascript
+// The visible tile layer
+L.mapbox.tileLayer('examples.map-8ced9urs')
+	.addTo(map);
+
+// Load interactivity data into the map with a gridLayer
+var myGridLayer = L.mapbox.gridLayer('examples.map-8ced9urs')
+	.addTo(map);
+
+// And use that interactivity to drive a control the user can see.
+var myGridControl = L.mapbox.gridControl(myGridLayer)
+	.addTo(map);
 
 ```
 
 ---
+
+#[fit] featureLayers
+
+---
+
+```javascript
+
+var myFeatureLayer = L.mapbox.featureLayer(geojson)
+    .addTo(map);
+
+// or 
+
+var myFeatureLayer = L.mapbox.featureLayer()
+    .addTo(map);
+
+myFeatureLayer.loadURL('my_local_markers.geojson')
+	.addTo(map);
+
+// loads markers from the map `examples.map-0l53fhk2` on Mapbox,
+// if that map has markers
+myFeatureLayer.loadID('examples.map-0l53fhk2');
+
+```
+
+---
+
 # Resources
 
 - help@mapbox.com
