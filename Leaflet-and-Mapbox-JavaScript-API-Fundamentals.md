@@ -490,9 +490,44 @@ var geoJson = L.geoJson(data, {
 
 ---
 
+```javascript
+var geoJson = L.geoJson(data, {
+    pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: feature.properties.radius,
+            fillColor: '#bada55',
+            fillOpacity: .8
+        })
+    },
+    onEachFeature: onEachFeature	
+});
+
+function onEachFeature(feature, layer) {
+      layer.on({
+          click: zoomToFeature
+      });
+}
+
+```
+---
+
+# [fit]Mapbox.js API
 
 ---
 
+Mapbox.js is a plugin for the Leaflet API
+
+---
+
+```javascript
+// L.mapbox.map(element, id|url|tilejson, options)
+
+
+var map = L.mapbox.map();
+
+```
+
+---
 # Resources
 
 - help@mapbox.com
