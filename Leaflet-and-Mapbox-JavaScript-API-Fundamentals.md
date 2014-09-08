@@ -148,6 +148,14 @@ Things we can add:
 
 ---
 
+# Map Property handlers
+
+- dragging		
+- scrollWheelZoom
+- attributionControl
+
+---
+
 # Map state options
 - center
 - zoom
@@ -432,50 +440,56 @@ L.featureGroup([myMarker, myPolyline])
 ```
 ---
 
-# Conversion methods
-
-## Methods for converting points to latitude/longitude and back
-
-- latLngToLayerPoint( <LatLng> latlng )
-- layerPointToLatLng( <Point> point )	
+#[fit]GeoJSON
 
 ---
-
-# Zoom/pan options
-- reset
-- pan
-- zoom
-- animate
-
----
-
-# Other options
-- Locate
-- Pan
-- Zoom
-- fit Bounds
-
----
-
-# Property handlers
-
-- dragging	
-- touchZoom	
-- doubleClickZoom	
-- scrollWheelZoom	
-- boxZoom	
-- keyboard	
-- tap	
-- zoomControl
-- attributionControl
-
----
-
-# Markers
 
 ```javascript
-L.marker([45.522, -122.677]).addTo(map);
+
+var data = {
+  "type": "Feature",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "DoubleTree Hotel",
+        "address": "1000 NE Multnomah Street, Portland, Oregon, 97232",
+        "phone": "+1-503-281-6111",
+        "marker-symbol": "lodging",
+        "color": "#23344c",
+        "radius": 300
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.65522956848145,
+          45.53050807819899
+        ]
+      }
+    }
+  ]
+};
+
 ```
+
+---
+
+```javascript
+     
+var geoJson = L.geoJson(data, {
+    pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: feature.properties.radius,
+            fillColor: '#bada55',
+            fillOpacity: .8
+        })
+    }
+});
+
+```
+
+---
+
 
 ---
 
