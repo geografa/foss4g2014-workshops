@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Filtering markers</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<style>
+.menu-ui {
+  background:#fff;
+  position:absolute;
+  top:10px;right:10px;
+  z-index:1;
+  border-radius:3px;
+  width:120px;
+  border:1px solid rgba(0,0,0,0.4);
+  }
+  .menu-ui a {
+    font-size:13px;
+    color:#404040;
+    display:block;
+    margin:0;padding:0;
+    padding:10px;
+    text-decoration:none;
+    border-bottom:1px solid rgba(0,0,0,0.25);
+    text-align:center;
+    }
+    .menu-ui a:first-child {
+      border-radius:3px 3px 0 0;
+      }
+    .menu-ui a:last-child {
+      border:none;
+      border-radius:0 0 3px 3px;
+      }
+    .menu-ui a:hover {
+      background:#f8f8f8;
+      color:#404040;
+      }
+    .menu-ui a.active,
+    .menu-ui a.active:hover {
+      background:#3887BE;
+      color:#FFF;
+      }
+</style>
+<nav id='menu-ui' class='menu-ui'>
+  <a href='#' class='active' id='filter-all'>All Venues</a>
+  <a href='#' id='filter-foss4g'>FOSS4G Events</a>
+  <a href='#' id='filter-bar'>Bars</a>
+  <a href='#' id='filter-cafe'>Cafes</a>
+  <a href='#' id='filter-restaurant'>Eat</a>
+</nav>
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiZ3JhZmEiLCJhIjoiU2U2QnIzUSJ9.4LnG05Ptvi1sUQ8t68rfgw';
+    var map = L.mapbox.map('map', 'grafa.h2e9ii5l'),
+        restaurant = document.getElementById('filter-restaurant'),
+        foss4g = document.getElementById('filter-foss4g'),
+        cafes = document.getElementById('filter-cafe'),
+        bars = document.getElementById('filter-bar'),
+        all = document.getElementById('filter-all');
+
+    map.setView([45.52312701460922,-122.66098022460939], 14);
+
+    var featureLayer = L.mapbox.featureLayer()
+      .loadURL('things.geojson')
+      .addTo(map);
+
+
+    foss4g.onclick = function(e) {
+        all.className = '';
+        // foss4g.className = '';
+        bars.className = '';
+        cafes.className = '';
+        restaurant.className = '';
+        this.className = 'active';
+        // The setFilter function takes a GeoJSON feature object
+        // and returns true to show it or false to hide it.
+        featureLayer.setFilter(function(f) {
+            return f.properties['marker-color'] === '#d85054';
+        });
+        return false;
+    };
+
+    bars.onclick = function(e) {
+        all.className = '';
+        foss4g.className = '';
+        // bars.className = '';
+        cafes.className = '';
+        restaurant.className = '';
+        this.className = 'active';
+        // The setFilter function takes a GeoJSON feature object
+        // and returns true to show it or false to hide it.
+        featureLayer.setFilter(function(f) {
+            return f.properties['marker-symbol'] === 'beer' || f.properties['marker-symbol'] === 'bar';
+        });
+        return false;
+    };
+
+    cafes.onclick = function(e) {
+        all.className = '';
+        foss4g.className = '';
+        bars.className = '';
+        // cafes.className = '';
+        restaurant.className = '';
+        this.className = 'active';
+        // The setFilter function takes a GeoJSON feature object
+        // and returns true to show it or false to hide it.
+        featureLayer.setFilter(function(f) {
+            return f.properties['marker-symbol'] === 'cafe';
+        });
+        return false;
+    };
+
+    restaurant.onclick = function(e) {
+        all.className = '';
+        foss4g.className = '';
+        bars.className = '';
+        cafes.className = '';
+        // restaurant.className = '';
+        this.className = 'active';
+        // The setFilter function takes a GeoJSON feature object
+        // and returns true to show it or false to hide it.
+        featureLayer.setFilter(function(f) {
+            return f.properties['marker-symbol'] === 'restaurant';
+        });
+        return false;
+    };
+
+    all.onclick = function() {
+        foss4g.className = '';
+        bars.className = '';
+        cafes.className = '';
+        restaurant.className = '';
+        this.className = 'active';
+        featureLayer.setFilter(function(f) {
+            // Returning true for all markers shows everything.
+            return true;
+        });
+        return false;
+    };
+</script>
+
+
+</body>
+</html>

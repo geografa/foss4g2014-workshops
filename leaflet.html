@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Quick Start Guide Example</title>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  
+  <style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <script>
+
+var map = L.map('map', {
+  center: [45.52245801087795, -122.67773866653444],
+  zoom:13
+});
+
+
+var myIcon = L.icon({
+    iconUrl: 'https://cldup.com/jsXu-OReqo-3000x3000.png',
+    iconSize: [50,50],
+    iconAnchor: [24,50],
+    popupAnchor: [1,-50]
+});
+
+var myMarker = L.marker([45.52245801087795, -122.67773866653444], {icon: myIcon})
+  .bindPopup('Hi there');
+      
+ var myPopup = L.popup()
+    .setLatLng([45.54, -122.65])
+    .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+    .openOn(map);
+      
+//map.on('click', function() { alert('Coordinates are: ' + map.getCenter().lat + ', ' + map.getCenter().lng); });
+
+var latlngs = [[45.52, -122.67], 
+[45.53, -122.68]];
+
+var myPolyline = L.polyline(latlngs, {color: 'red'});
+//  .bindPopup('Imma polyline');
+
+
+      
+      
+L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy;  ' +
+            '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+            '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            id: 'examples.map-i86knfo3'
+        }).addTo(map);
+
+
+      
+var data = {
+  "type": "Feature",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "DoubleTree Hotel",
+        "address": "1000 NE Multnomah Street, Portland, Oregon, 97232",
+        "phone": "+1-503-281-6111",
+        "marker-symbol": "lodging",
+        "color": "#23344c",
+        "radius": 80
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.65522956848145,
+          45.53050807819899
+        ]
+      }
+    }
+  ]
+};
+ 
+           
+var geoJson = L.geoJson(data, {
+    pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, {
+            // here we use the `mag` property in GeoJSON verbatim: if it's
+            // to small or two large, we can use basic math in Javascript to
+            // adjust it so that it fits the map better.
+            radius: feature.properties.radius,
+            fillColor: '#bada55',
+            fillOpacity: .8
+        })
+    },
+  onEachFeature: onEachFeature
+});
+      
+var myLayers = L.layerGroup([myMarker,myPolyline,geoJson])
+    .addTo(map);
+
+function onEachFeature(feature, layer) {
+      layer.on({
+          click: zoomToFeature
+      });
+}
+
+function zoomToFeature(e) {
+      map.panTo(e.target.getLatLng());
+}
+
+ 
+    </script>
+</body>
+</html>
