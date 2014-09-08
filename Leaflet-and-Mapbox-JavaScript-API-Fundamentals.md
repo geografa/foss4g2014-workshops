@@ -286,7 +286,7 @@ myMarker
 ```javascript
 myMarker.bindPopup('Hi there').openPopup();
 
-var popup = L.popup()
+var myPopup = L.popup()
     .setLatLng([45.54, -122.65])
     .setContent('<p>Hello world!<br />This is a nice popup.</p>')
     .openOn(map);
@@ -366,8 +366,8 @@ map.on('click', function() {
 #[fit]polylines, polygons, circles, rectangles, circle markers
 
 ```javascript
-var latlngs = [[45.52245801087795, -122.67773866653444], 
-[38.89063199187812,-77.01313018798828]];
+var latlngs = [[45.52, -122.67], 
+[45.53, -122.68]];
 
 var myPolyline = L.polyline(latlngs, {
 		color: 'red'
@@ -399,11 +399,36 @@ map.fitBounds(myPolyline.getBounds());
 
 ---
 
+# Remove addTo(map) from myMarker and myPolyline
+
+---
+
+#[fit]LayerGroup
+
+```javascript
+var myLayers = L.layerGroup([myMarker])
+    .addLayer(myPolyline)
+    .addTo(map);
+```
+---
+
 # Example
 ```javascript
-map.eachLayer(function (layer) {
-    layer.bindPopup('Hello');
+myLayers.eachLayer(function (layer) {
+    layer.bindPopup('Hello')
 });
+```
+---
+
+# [fit]Share methods between layers with FeatureGroup
+
+```javascript
+L.featureGroup([myMarker, myPolyline])
+    .bindPopup('Hello world!')
+    .on('click', function() { 
+    	alert('Clicked on a group!'); 
+    })
+    .addTo(map);
 ```
 ---
 
