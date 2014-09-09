@@ -1,10 +1,11 @@
-# Leaflet and Mapbox JavaScript API Fundamentals
+# Leaflet and Mapbox JavaScript API *Fun*damentals
 
 ![](https://i.cloudup.com/G9pEJXWpow-2000x2000.png)
 
 ---
 
-# Rafa Gutierrez
+![](http://photos-c.ak.instagram.com/hphotos-ak-xfp1/10251379_523161604472306_1215940481_n.jpg)
+# [fit]Rafa Gutierrez
 
 - @geografa 
 - @mapbox 
@@ -12,7 +13,9 @@
 
 ---
 
-# What's covered
+![](http://photos-g.ak.instagram.com/hphotos-ak-xpf1/1389443_189967461190950_1746730200_n.jpg)
+
+# [fit]What's covered
 
 - Part I - Setting up your environment
 - Part II - Creating an Interactive Map with the Leaflet API
@@ -20,8 +23,9 @@
 - Part IV - Wrap Up and Next Steps
 
 ---
+![](http://photos-g.ak.instagram.com/hphotos-ak-xpf1/1389443_189967461190950_1746730200_n.jpg)
 
-# Part I - Setting up your environment
+# [fit]Part I - Setting up your environment
 
 Things you will need for this workshop:
 
@@ -31,12 +35,12 @@ Things you will need for this workshop:
 Good to haves:
 
 - local web server
-- Mapbox account (use code FOSS4GWORKSHOPS)
+- Mapbox account (use code TRYMAPBOXSTUDIO)
 
 ---
 
 # [fit]Real time polls and surveys
-[Using crowdcast.io](http://crowdcast.io/) - crowdcast.io
+[Using crowdcast.io](http://crowdcast.io/e/geografa2) - crowdcast.io
 
 ---
 
@@ -521,18 +525,22 @@ function onEachFeature(feature, layer) {
 ```
 ---
 
+![](http://distilleryimage6.ak.instagram.com/3cef2e0ef27511e2b88d22000a1fd1dd_7.jpg)
 # [fit] Part III
 
 ---
 
+![](http://distilleryimage5.ak.instagram.com/c45f58d6020211e39a3e22000a1f90ce_7.jpg)
 # [fit] Mapbox.js API
 
 ---
 
+![](http://distilleryimage5.ak.instagram.com/d31f375c02ce11e3802422000a9e014e_7.jpg)
 # [fit]Mapbox.js is a plugin for the Leaflet API
 
 ---
 
+![](http://distilleryimage11.ak.instagram.com/1ee69cc65dd311e2afd722000a1f98d6_7.jpg)
 #[fit] Initializing the map
 
 ---
