@@ -521,11 +521,15 @@ function onEachFeature(feature, layer) {
 ```
 ---
 
-# [fit]Mapbox.js API
+# [fit] Part III
 
 ---
 
-Mapbox.js is a plugin for the Leaflet API
+# [fit] Mapbox.js API
+
+---
+
+# [fit]Mapbox.js is a plugin for the Leaflet API
 
 ---
 

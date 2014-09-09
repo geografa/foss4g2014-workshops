@@ -62,7 +62,7 @@
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiZ3JhZmEiLCJhIjoiU2U2QnIzUSJ9.4LnG05Ptvi1sUQ8t68rfgw';
-    var map = L.mapbox.map('map', 'grafa.h2e9ii5l'),
+    var map = L.mapbox.map('map', 'grafa.a962eabc'),
         restaurant = document.getElementById('filter-restaurant'),
         foss4g = document.getElementById('filter-foss4g'),
         cafes = document.getElementById('filter-cafe'),
@@ -72,7 +72,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiZ3JhZmEiLCJhIjoiU2U2QnIzUSJ9.4LnG05Ptvi1sUQ8t
     map.setView([45.52312701460922,-122.66098022460939], 14);
 
     var featureLayer = L.mapbox.featureLayer()
-      .loadURL('things.geojson')
+      .loadURL('assets/things.geojson')
       .addTo(map);
 
 
