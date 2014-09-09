@@ -13,6 +13,14 @@
 
 ---
 
+#[fit]Mapbox 
+
+---
+
+![](https://cldup.com/I6mx-iZ3mh.gif)
+
+---
+
 ![](http://photos-g.ak.instagram.com/hphotos-ak-xpf1/1389443_189967461190950_1746730200_n.jpg)
 
 # [fit]What's covered
@@ -34,13 +42,14 @@ Things you will need for this workshop:
 
 Good to haves:
 
+- slide to follow along: https://github.com/geografa/foss4g2014-workshops/blob/master/Leaflet-and-Mapbox-JavaScript-API-Fundamentals.md
 - local web server
 - Mapbox account (use code TRYMAPBOXSTUDIO)
 
 ---
 
 # [fit]Real time polls and surveys
-[Using crowdcast.io](http://crowdcast.io/e/geografa2) - crowdcast.io
+[Using crowdcast.io](crowdcast.io/e/foss4g) - crowdcast.io
 
 ---
 ![](http://distilleryimage9.ak.instagram.com/42e63454626711e285b022000a9f15de_7.jpg)
@@ -268,7 +277,7 @@ var myMarker = L.marker([45.52245801087795, -122.67773866653444], {
 ```
 ---
 
-# [fit]icons
+# [fit]Custom icons
 
 ---
 
@@ -548,6 +557,15 @@ function onEachFeature(feature, layer) {
 
 ---
 
+# Adding CSS and scripts
+
+Use the hosted version of Mapbox as described at https://www.mapbox.com/mapbox.js/.
+
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
+
+---
+
 ![](http://distilleryimage11.ak.instagram.com/1ee69cc65dd311e2afd722000a1f98d6_7.jpg)
 #[fit] Initializing the map
 
@@ -626,10 +644,16 @@ var featureLayer = L.mapbox.featureLayer()
     .loadURL('things.geojson')
     .addTo(map);
 ```
+---
 
+#[fit]Part IV
+![](http://distilleryimage0.ak.instagram.com/232c834a941f11e2a3b222000a9f1696_7.jpg)
 
 ---
-# Resources
+
+# [fit]Resources
+![](http://distilleryimage0.ak.instagram.com/232c834a941f11e2a3b222000a9f1696_7.jpg)
+
 
 - help@mapbox.com
 - https://groups.google.com/forum/#!forum/leaflet-js
