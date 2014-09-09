@@ -43,10 +43,15 @@ Good to haves:
 [Using crowdcast.io](http://crowdcast.io/e/geografa2) - crowdcast.io
 
 ---
+![](http://distilleryimage9.ak.instagram.com/42e63454626711e285b022000a9f15de_7.jpg)
+#[fit] Part II
 
-# Part II - Creating an Interactive Map with the Leaflet API
+---
 
-## [Leaflet API](http://leafletjs.com/reference.html) - leafletjs.com/reference.html
+![](http://distilleryimage9.ak.instagram.com/42e63454626711e285b022000a9f15de_7.jpg)
+# [fit] The Leaflet API
+
+## [leafletjs.com/reference.html](http://leafletjs.com/reference.html)
 
 ---
 
@@ -359,7 +364,6 @@ map.on('click', function() {
 	map.getCenter().lng); 
 });
 ```
-
 ---
 
 #Map events
@@ -523,6 +527,10 @@ function onEachFeature(feature, layer) {
 }
 
 ```
+---
+
+# [fit] Questions?
+
 ---
 
 ![](http://distilleryimage6.ak.instagram.com/3cef2e0ef27511e2b88d22000a1fd1dd_7.jpg)
