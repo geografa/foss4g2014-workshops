@@ -28,7 +28,7 @@
 - Part I - Setting up your environment
 - Part II - Creating an Interactive Map with the Leaflet API
 - Part III - Adding Customized and Interactive Mapbox Maps Mapbox.js API
-- Part IV - Wrap Up and Next Steps
+- Part IV - Test Examples and Make an Interactive Map
 
 ---
 ![](http://photos-g.ak.instagram.com/hphotos-ak-xpf1/1389443_189967461190950_1746730200_n.jpg)
@@ -575,10 +575,11 @@ Use the hosted version of Mapbox as described at https://www.mapbox.com/mapbox.j
 // L.mapbox.map(element, id|url|tilejson, options)
 
 var map = L.mapbox.map('map')
-    .setView([45.512549810900424,-122.68418669700624],7);
+    .setView([45.512,-122.684],7);
 
 ```
 ---
+
 #[fit] Add a tileLayer to the map
 
 ```javascript
@@ -647,6 +648,11 @@ var featureLayer = L.mapbox.featureLayer()
 ---
 
 #[fit]Part IV
+![](http://distilleryimage0.ak.instagram.com/232c834a941f11e2a3b222000a9f1696_7.jpg)
+
+---
+
+# [fit]Test Examples and Make an Interactive Map
 ![](http://distilleryimage0.ak.instagram.com/232c834a941f11e2a3b222000a9f1696_7.jpg)
 
 ---
