@@ -135,7 +135,7 @@ Create a basic style that makes the map fit the entire page.
 	var map = L.map('map');
 	</script>
 
-```
+``` 
 ---
 
 # Add a tileLayer to the map element
@@ -415,7 +415,7 @@ var myPolyline = L.polyline(latlngs, {
 
 ```javascript
 // zoom the map to the polyline
-map.fitBounds(myPolyline.getBounds());
+map.fitBounds(myPolyline);
 ```
 
 ---
